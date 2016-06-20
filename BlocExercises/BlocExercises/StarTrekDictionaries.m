@@ -12,17 +12,26 @@
 
 - (NSString *)favoriteDrinkForStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
     /* WORK HERE */
-    return @"";
-}
+    return [characterDictionary valueForKey:@"favorite drink"];
+            }
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
     /* WORK HERE */
-    return @[];
+    NSMutableArray *arrayOfDrinks = [NSMutableArray arrayWithCapacity:charactersArray.count];
+    for (NSDictionary *characterDictionary in charactersArray) {
+        NSString *favoriteDrink = [self favoriteDrinkForStarTrekCharacterDictionary:characterDictionary];
+        if (favoriteDrink) {
+            [arrayOfDrinks addObject:favoriteDrink];
+        }
+    }
+    return arrayOfDrinks;
 }
 
 - (NSDictionary *)dictionaryWithQuoteAddedToStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
     /* WORK HERE */
-    return @{};
+    NSMutableDictionary *addQuoteToCharacterDictionary = [characterDictionary mutableCopy];
+    [addQuoteToCharacterDictionary setValue:@"Things are only impossible until they're not." forKey:@"quote"];
+    return addQuoteToCharacterDictionary;
 }
 
 @end
