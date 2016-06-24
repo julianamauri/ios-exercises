@@ -11,7 +11,7 @@
 @implementation StuffRememberer
 
 - (void) rememberThisArrayForLater:(NSMutableArray *)arrayToRemember {
-    _retainedArray = arrayToRemember;
+    self.retainedArray = arrayToRemember;
 }
 
 - (void) copyThisArrayForLater:(NSMutableArray *)arrayToCopy {
@@ -19,21 +19,21 @@
 }
 
 - (void) rememberThisFloatForLater:(CGFloat)floatToRemember {
-    _assignedCGFloat = floatToRemember;
+    self.assignedCGFloat = floatToRemember;
 }
 
 - (NSMutableArray *) arrayYouShouldRemember {
-    return _retainedArray;
+    return self.retainedArray;
 }
 
 - (NSMutableArray *) arrayYouShouldCopy {
     /* WORK HERE */
-    return _copiedArray;
+    return self.copiedArray;
 }
 
 - (CGFloat) floatYouShouldRemember {
     /* WORK HERE */
-    return _assignedCGFloat;
+    return self.assignedCGFloat;
 }
 
 @end
